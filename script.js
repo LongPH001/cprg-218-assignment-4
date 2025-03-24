@@ -42,13 +42,6 @@ async function getJoke() {
     }
   }
   
-  // Play laughing sound effect — reliable source
-  function playLaughSound() {
-    const audio = new Audio('https://cdn.pixabay.com/audio/2022/03/15/audio_25b0ed47c4.mp3'); 
-    audio.volume = 0.4;
-    audio.play().catch(error => console.error("Audio play blocked:", error));
-  }
-  
   function playLaughSound() {
     const audio = new Audio('https://longph001.github.io/cprg-218-assignment-4/sounds/laugh.mp3');
     audio.volume = 0.4;
