@@ -1,29 +1,36 @@
-async function getJoke(category = 'Any') {
+const categoryTitles = {
+    'Any': '🎲 Random Joke',
+    'Programming': '💻 Programming Joke',
+    'Misc': '🌀 Miscellaneous Joke',
+    'Pun': '🤣 Pun Joke',
+    'Spooky': '👻 Spooky Joke',
+    'Christmas': '🎄 Christmas Joke'
+  };
+  
+  async function getJoke(category = 'Any') {
     const setupElement = document.getElementById('setup');
     const punchlineElement = document.getElementById('punchline');
+    const categoryTitleElement = document.getElementById('joke-category-title');
   
     setupElement.textContent = 'Loading...';
     punchlineElement.textContent = '';
+    categoryTitleElement.textContent = categoryTitles[category] || 'Joke';
   
     try {
-      // Fetch joke based on selected category
       const response = await fetch(`https://v2.jokeapi.dev/joke/${category}?blacklistFlags=nsfw,religious,political,racist,sexist,explicit`);
       const joke = await response.json();
   
-      // Clear old joke text
       setupElement.textContent = '';
       punchlineElement.textContent = '';
   
       if (joke.type === 'single') {
-        // For single-line jokes
         await typeText(setupElement, joke.joke, 20);
         setupElement.classList.add('fade-in');
         playLaughSound();
       } else if (joke.type === 'twopart') {
-        // For two-part jokes
         await typeText(setupElement, joke.setup, 20);
         setupElement.classList.add('fade-in');
-        await new Promise(resolve => setTimeout(resolve, 700)); // pause before delivery
+        await new Promise(resolve => setTimeout(resolve, 700));
         await typeText(punchlineElement, joke.delivery, 25);
         punchlineElement.classList.add('pop');
         playLaughSound();
@@ -41,7 +48,6 @@ async function getJoke(category = 'Any') {
     }
   }
   
-  // Typing animation function
   async function typeText(element, text, speed) {
     for (let i = 0; i < text.length; i++) {
       element.textContent += text.charAt(i);
@@ -49,7 +55,6 @@ async function getJoke(category = 'Any') {
     }
   }
   
-  // Play your hosted laugh sound
   function playLaughSound() {
     const audio = new Audio('https://longph001.github.io/cprg-218-assignment-4/sounds/laugh.wav');
     audio.volume = 0.4;
@@ -59,6 +64,4 @@ async function getJoke(category = 'Any') {
   function toggleDarkMode() {
     document.body.classList.toggle('dark-mode');
   }
-  
-  
   
