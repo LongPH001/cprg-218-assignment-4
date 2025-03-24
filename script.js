@@ -50,8 +50,9 @@ async function getJoke() {
   }
   
   function playLaughSound() {
-    const audio = new Audio('https://cdn.pixabay.com/audio/2022/03/15/audio_25b0ed47c4.mp3');
+    const audio = new Audio('https://longph001.github.io/cprg-218-assignment-4/sounds/laugh.mp3');
     audio.volume = 0.4;
-    audio.play().catch(err => console.error('Audio play blocked:', err));
+    audio.play().catch(err => console.error('Audio blocked:', err));
   }
+  
   
