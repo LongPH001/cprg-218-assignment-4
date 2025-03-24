@@ -12,10 +12,14 @@ const categoryTitles = {
     const punchlineElement = document.getElementById('punchline');
     const categoryTitleElement = document.getElementById('joke-category-title');
   
-    setupElement.textContent = 'Loading...';
-    punchlineElement.textContent = '';
+    // 1️⃣ Update the category title right away when the button is clicked:
     categoryTitleElement.textContent = categoryTitles[category] || 'Joke';
   
+    // 2️⃣ Show a loading message for setup and clear punchline
+    setupElement.textContent = 'Loading...';
+    punchlineElement.textContent = '';
+  
+    // 3️⃣ Continue with the fetch and joke rendering...
     try {
       const response = await fetch(`https://v2.jokeapi.dev/joke/${category}?blacklistFlags=nsfw,religious,political,racist,sexist,explicit`);
       const joke = await response.json();
