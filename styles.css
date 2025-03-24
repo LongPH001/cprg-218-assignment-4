@@ -26,13 +26,13 @@ body {
     transition: background-color 0.3s;
   }
   
-  .btn-random { background-color: #4CAF50; }
+.btn-random { background-color: #4CAF50; }
 .btn-programming { background-color: #007BFF; }
 .btn-misc { background-color: #6f42c1; }
 .btn-pun { background-color: #f39c12; }
 .btn-spooky { background-color: #d35400; }
 .btn-christmas { background-color: #e74c3c; }
-  .button-container {
+.button-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
