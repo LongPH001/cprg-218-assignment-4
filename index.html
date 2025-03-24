@@ -7,12 +7,23 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>Click for a Random Joke!</h1>
+  <h1>Click a Button for a Joke!</h1>
   <div id="joke-container">
-    <p id="setup">Press the button to get a joke.</p>
+    <p id="setup">Press a button to get a joke.</p>
     <p id="punchline"></p>
   </div>
-  <button onclick="getJoke()">Get Joke</button>
+
+  <div class="button-container">
+    <button class="btn-random" onclick="getJoke('Any')">🎲 Random Joke</button>
+    <button class="btn-programming" onclick="getJoke('Programming')">💻 Programming Joke</button>
+    <button class="btn-misc" onclick="getJoke('Misc')">🌀 Misc Joke</button>
+    <button class="btn-pun" onclick="getJoke('Pun')">🤣 Pun</button>
+    <button class="btn-spooky" onclick="getJoke('Spooky')">👻 Spooky Joke</button>
+    <button class="btn-christmas" onclick="getJoke('Christmas')">🎄 Christmas Joke</button>
+  </div>
+  
+  <button id="darkModeToggle" onclick="toggleDarkMode()">🌗 Toggle Dark Mode</button>
+  <p style="margin-top:30px; font-size: 14px;">* Two-part jokes will be separated with a pause.</p>
 
   <script src="script.js"></script>
 </body>
