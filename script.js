@@ -43,9 +43,10 @@ async function getJoke() {
   }
   
   function playLaughSound() {
-    const audio = new Audio('https://longph001.github.io/cprg-218-assignment-4/sounds/laugh.mp3');
+    const audio = new Audio('https://longph001.github.io/cprg-218-assignment-4/sounds/laugh.wav');
     audio.volume = 0.4;
-    audio.play().catch(err => console.error('Audio blocked:', err));
+    audio.play().catch(err => console.error('Audio play blocked:', err));
   }
+  
   
   
